@@ -54,7 +54,7 @@ if (
     //ici, le fichier est correct.
     //lmitons la taille du fichier a 1m0
     if($filesize>1024*1024){
-        die("le fichier est trop gros");
+        die("le fichier est tres volumineux");
     }
 
     //on genere un nom unique 
@@ -62,11 +62,14 @@ if (
     //generer  le chemin d'accees complet a mon fichier
     $newfilename= __DIR__."/uploads/$newname.$extension";
 
+   //on deplace le fichier de tmp a uploads en le renommant
+
     if(!move_uploaded_file($_FILES['file'],$newfilename)){
         die("L'upload a echoué");
     }
 
     //si je veux proteger contre les ecritures
+    //on interdit l'execution du fichier
     chmod($newfilename,0644);
 }
 
