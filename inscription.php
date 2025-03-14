@@ -28,7 +28,22 @@ if (!empty($_POST)) {
         ////////ici, l'on connectera notre utilisateur
 
 
+            //ici l'utilisateur et le mot de passe sont correct
+        //ici, l'on devra ouvrir la session et connecter l'utilisateur
 
+        session_start();
+        //on doit stocker dans $session les informations de l'utilisateur
+
+        $_SESSION["user"]=[
+            "id"=>$user["id"],
+            "pseudo"=>$user["name"],
+            "email"=>$user["email"]
+        ];
+
+        // var_dump($_SESSION);
+        //l'urilisateur est connecte et on le redirige vers la page de profil
+
+        header("location:profil.php");
 
 
 
