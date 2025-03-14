@@ -1,7 +1,7 @@
  <?php
  $titre="page d'accueil";
-    include_once "/includes/header.php";
-    include_once "/includes/nav.php";
+    include_once "includes/header.php";
+    include_once "includes/nav.php";
     ?>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores atque mollitia dolor, amet, blanditiis, soluta necessitatibus consequuntur beatae omnis corporis architecto veritatis ratione laudantium libero? Expedita odio aliquam earum provident!</p>
 
@@ -24,7 +24,7 @@ $requete=$db->prepare($sql);
 // $requete->bindValue(1, $password, PDO::PARAM_STR_CHAR);
 
 $requete->bindValue(":username", $username, PDO::PARAM_STR);
-$requete->bindValue(":password", $passrord, PDO::PARAM_STR);
+$requete->bindValue(":password", $password, PDO::PARAM_STR);
 
 $requete->execute();
 $user=$requete->fetchAll();

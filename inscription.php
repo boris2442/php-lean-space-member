@@ -17,12 +17,13 @@ if (!empty($_POST)) {
         $pass = password_hash($_POST['password'], PASSWORD_ARGON2ID);
 
         require_once "database.php";
-        $sql = "INSERT INTO `spacemember` (`username`, `email`, `pass`) VALUES(:name, :email, '$pass')";
+        $sql = "INSERT INTO `spacemember` (`name`, `email`, `pass`) VALUES(:name, :email, '$pass')";
 
         $requete = $db->prepare($sql);
         $requete->bindValue(":name", $name, PDO::PARAM_STR);
         $requete->bindValue(":email", $email, PDO::PARAM_STR);
         $requete->execute();
+        echo "etudiant inserer a la database avec succes";
     }
 }
 
