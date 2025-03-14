@@ -24,6 +24,17 @@ if (!empty($_POST)) {
         $requete->bindValue(":email", $email, PDO::PARAM_STR);
         $requete->execute();
         echo "etudiant inserer a la database avec succes";
+
+        ////////ici, l'on connectera notre utilisateur
+
+
+
+
+
+
+
+
+
     }
 }
 
