@@ -1,7 +1,7 @@
 <nav>
         <ul>
-            <li>contact</li>
             <li>Accueil</li>
             <li>services</li>
+            <li>contact</li>
         </ul>
     </nav>

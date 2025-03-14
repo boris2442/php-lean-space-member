@@ -23,42 +23,33 @@ if (!empty($_POST)) {
         $requete->bindValue(":name", $name, PDO::PARAM_STR);
         $requete->bindValue(":email", $email, PDO::PARAM_STR);
         $requete->execute();
+        $id = $db->lastInsertId();
         echo "etudiant inserer a la database avec succes";
 
         ////////ici, l'on connectera notre utilisateur
 
 
-            //ici l'utilisateur et le mot de passe sont correct
+        //ici l'utilisateur et le mot de passe sont correct
         //ici, l'on devra ouvrir la session et connecter l'utilisateur
 
         session_start();
         //on doit stocker dans $session les informations de l'utilisateur
 
-        $_SESSION["user"]=[
-            "id"=>$user["id"],
-            "pseudo"=>$user["name"],
-            "email"=>$user["email"]
+        $_SESSION["user"] = [
+            "id" => $id,
+            "pseudo" => $name,
+            "email" => $_POST["email"]
         ];
 
         // var_dump($_SESSION);
         //l'urilisateur est connecte et on le redirige vers la page de profil
 
         header("location:profil.php");
-
-
-
-
-
-
     }
 }
 
 
-
-
-
 ?>
-
 
 <?php
 include_once "includes/header.php";
