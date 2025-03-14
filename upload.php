@@ -1,9 +1,59 @@
 <?php
 //les donnees  type files sont enrefistrer dans la superglobale file id $file['name]
 //toujours savoir que lorsque il ya deja un type file dans le projet, ajouter l'attrbut miltipaart/form-data
-echo "<pre>";
-var_dump($_FILES);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($_FILES);
+// echo "</pre>";
+
+//que de mettre plusieurs champs pour les fichiers, nous pouvons mettre l'attriblt multiple 
+
+//nous avons aussi l'attribut accepts 
+?>
+
+<?php
+if (
+    isset($_FILES["file"])
+    && $_FILES["file"]["error"] === 0
+) {
+
+    //l'image a ete bparfaitement ete recu
+    // var_dump($_FILES);
+
+    //controles des verification 
+    //verifierl'extension du fichier
+    //verifier la taille de l'image
+
+
+    //verifier toujours l'extension et le type mail;
+
+    $allowed=[
+        'png' => 'image/png',
+        'jpe' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'jpg' => 'image/jpeg',
+        'gif' => 'image/gif',
+        'bmp' => 'image/bmp',
+        'ico' => 'image/vnd.microsoft.icon',
+        'tiff' => 'image/tiff',
+        'tif' => 'image/tiff',
+        'svg' => 'image/svg+xml',
+        'svgz' => 'image/svg+xml',
+        'pdf' => 'application/pdf',
+    ];
+    $filename==$_FILES['file']['name'];
+    $fileetype=$_FILES['file']['type'];
+    $filesize=$_FILES['file']['size'];
+$extension=pathinfo($filename,  PATHINFO_EXTENSION);
+
+//verifie l'absence de l'extension dans les cles de $allowed 
+if(!array_key_exists($extension, $allowed)){
+    die("l'extension du fichier n'est pas autorisee");
+}
+
+
+}
+
+
 ?>
 
 
@@ -22,18 +72,13 @@ echo "</pre>";
     <form method="post" enctype="multipart/form-data">
         <div class="">
             <label for="file">Enter un fichier</label>
-            <input type="file" name="file" id="file">
+            <input type="file" name="file[]" id="file" accept="">
         </div>
+        <!-- <div class="">
+            <label for="image">Enter une image</label>
+            <input type="file" name="image" id="image">
+        </div> -->
         <input type="submit" value="Envoyer">
-
-
-
-
-
-
-
-
-
 
     </form>
 </body>
