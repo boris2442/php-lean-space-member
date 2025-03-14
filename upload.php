@@ -56,6 +56,15 @@ if (
     if($filesize>1024*1024){
         die("le fichier est trop gros");
     }
+
+    //on genere un nom unique 
+    $newname=md5(uniqid());
+    //generer  le chemin d'accees compplet a mon fichier
+    $newfile= __DIR__."/uploads/$newname.$extension";
+
+    if(!move_uploaded_file($_FILES['file'],$newfile)){
+        die("L'upload a echoué");
+    }
 }
 
 
