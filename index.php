@@ -32,16 +32,6 @@ $user=$requete->fetchAll();
 
 // $requete=$db->query($sql);
 // $user=$requete->fetchAll();
-
-
-
-
-
-
-
-
-
-
     include_once "/includes/footer.php";
 
 

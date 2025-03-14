@@ -6,6 +6,7 @@ if (isset($_SESSION['user'])) {
 }
 if (!empty($_POST)) {
     if (
+        //verifier que l'email existe dans notre database
         isset($_POST['email'], $_POST['password'])
         &&
         (
@@ -18,7 +19,7 @@ if (!empty($_POST)) {
             die("ce n'est pas un email");
         }
 
-        //verifier que l'emal existe dans notre database
+        
 
         require_once "database.php";
 
@@ -56,10 +57,6 @@ if (!empty($_POST)) {
         header("location:profil.php");
     }
 }
-
-
-
-
 
 ?>
 
