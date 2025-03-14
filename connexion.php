@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(isset($_SESSION['user'])){
+        header("location:profil.php");
+        exit;
+     }
 if (!empty($_POST)) {
     if (
         isset($_POST['email'], $_POST['password'])

@@ -14,7 +14,7 @@ session_start();
 
         <?php }else{ ?>
       
-      
+      <li>bonjour <?php $_SESSION['user']['name'] ?></li>
       
 
 
@@ -25,4 +25,5 @@ session_start();
           
          
     </ul>
+
 </nav>
