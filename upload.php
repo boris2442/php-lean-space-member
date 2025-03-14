@@ -1,4 +1,5 @@
 <?php
+
 //les donnees  type files sont enrefistrer dans la superglobale file id $file['name]
 //toujours savoir que lorsque il ya deja un type file dans le projet, ajouter l'attrbut miltipaart/form-data
 // echo "<pre>";
@@ -15,7 +16,9 @@ if (
     isset($_FILES["file"])
     && $_FILES["file"]["error"] === 0
 ) {
-
+    echo "<pre>";
+    var_dump($_FILES);
+    echo "</pre>";
     //l'image a ete bparfaitement ete recu
     // var_dump($_FILES);
 
@@ -26,37 +29,29 @@ if (
 
     //verifier toujours l'extension et le type mail;
 
-    $allowed=[
+    $allowed = [
         'png' => 'image/png',
         'jpe' => 'image/jpeg',
         'jpeg' => 'image/jpeg',
         'jpg' => 'image/jpeg',
-        'gif' => 'image/gif',
-        'bmp' => 'image/bmp',
-        'ico' => 'image/vnd.microsoft.icon',
-        'tiff' => 'image/tiff',
-        'tif' => 'image/tiff',
-        'svg' => 'image/svg+xml',
-        'svgz' => 'image/svg+xml',
-        'pdf' => 'application/pdf',
+
+
     ];
-    $filename==$_FILES['file']['name'];
-    $fileetype=$_FILES['file']['type'];
-    $filesize=$_FILES['file']['size'];
-$extension=pathinfo($filename,  PATHINFO_EXTENSION);
+    $filename = $_FILES['file']['name'];
+    $filetype = $_FILES['file']['type'];
+    $filesize = $_FILES['file']['size'];
+    $extension = pathinfo($filename,  PATHINFO_EXTENSION);
 
-//verifie l'absence de l'extension dans les cles de $allowed 
-if(!array_key_exists($extension, $allowed)){
-    die("l'extension du fichier n'est pas autorisee");
-}
-
-
+    //verifie l'absence de l'extension dans les cles de $allowed 
+    if (!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)) {
+        //soit l'extension soit le type est incorect ou les deux
+        die("l'extension du fichier n'est pas autorisee");
+        die("formmat de fichier incorrect");
+    }
 }
 
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
