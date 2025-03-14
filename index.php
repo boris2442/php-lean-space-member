@@ -1,4 +1,5 @@
  <?php
+  session_start();
  $titre="page d'accueil";
     include_once "includes/header.php";
     include_once "includes/nav.php";

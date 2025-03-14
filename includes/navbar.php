@@ -1,7 +1,20 @@
 <nav>
-        <ul>
-            <li>Accueil</li>
-            <li>services</li>
-            <li>contact</li>
-        </ul>
-    </nav>
+    <ul>
+        <li>Accueil</li>
+        <li>services</li>
+        <li>contact</li>
+
+        <?php if (!isset($_SESSION["user"])) { ?>
+            <li><a href="connexion.php">connexion</a></li>
+            <li><a href="connexion.php">Inscription</a></li>
+
+        <?php }
+        ?>
+        <?php
+         else{?>
+
+            <li><a href="deconnexion.php">Deconnexion</a></li>
+            <?php    }
+        ?>
+    </ul>
+</nav>

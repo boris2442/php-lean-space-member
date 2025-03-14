@@ -1,4 +1,5 @@
 <?php
+    session_start();
 if (!empty($_POST)) {
     if (
         isset($_POST['email'], $_POST['password'])
@@ -37,7 +38,6 @@ if (!empty($_POST)) {
         //ici l'utilisateur et le mot de passe sont correct
         //ici, l'on devra ouvrir la session et connecter l'utilisateur
 
-        session_start();
         //on doit stocker dans $session les informations de l'utilisateur
 
         $_SESSION["user"]=[

@@ -1,5 +1,5 @@
 <?php
-
+ session_start();
 //connexion a la base
 require_once "./database.php";
 
