@@ -59,12 +59,15 @@ if (
 
     //on genere un nom unique 
     $newname=md5(uniqid());
-    //generer  le chemin d'accees compplet a mon fichier
-    $newfile= __DIR__."/uploads/$newname.$extension";
+    //generer  le chemin d'accees complet a mon fichier
+    $newfilename= __DIR__."/uploads/$newname.$extension";
 
-    if(!move_uploaded_file($_FILES['file'],$newfile)){
+    if(!move_uploaded_file($_FILES['file'],$newfilename)){
         die("L'upload a echoué");
     }
+
+    //si je veux proteger contre les ecritures
+    chmod($newfilename,0644);
 }
 
 
