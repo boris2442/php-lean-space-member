@@ -16,9 +16,9 @@ if (
     isset($_FILES["file"])
     && $_FILES["file"]["error"] === 0
 ) {
-    echo "<pre>";
-    var_dump($_FILES);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_FILES);
+    // echo "</pre>";
     //l'image a ete bparfaitement ete recu
     // var_dump($_FILES);
 
@@ -34,13 +34,15 @@ if (
         'jpe' => 'image/jpeg',
         'jpeg' => 'image/jpeg',
         'jpg' => 'image/jpeg',
+        'pdf' => 'application/pdf',
 
 
-    ];
+    ]; 
     $filename = $_FILES['file']['name'];
     $filetype = $_FILES['file']['type'];
     $filesize = $_FILES['file']['size'];
-    $extension = pathinfo($filename,  PATHINFO_EXTENSION);
+    //ici, nous avons mit l'extension en miniscule
+    $extension =strtolower(pathinfo($filename,  PATHINFO_EXTENSION));
 
     //verifie l'absence de l'extension dans les cles de $allowed 
     if (!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)) {
@@ -58,7 +60,7 @@ if (
 
 
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 
