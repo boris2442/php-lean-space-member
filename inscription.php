@@ -21,6 +21,10 @@ if (!empty($_POST)) {
         //hachage du mot de passe
         $pass = password_hash($_POST['password'], PASSWORD_ARGON2ID);
 
+///ajouter les controles supplementaires  
+///////////////par exemple, verifier si le mot de passe contient les caracteres souuhaités , transformer les donnees recuperer en majuscule soit en minuscule...
+ //emlever les espaces a l'aide de trim, ...
+
         require_once "database.php";
         $sql = "INSERT INTO `spacemember` (`name`, `email`, `pass`) VALUES(:name, :email, '$pass')";
 

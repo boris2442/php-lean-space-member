@@ -1,9 +1,9 @@
 <?php
-    session_start();
-    if(isset($_SESSION['user'])){
-        header("location:profil.php");
-        exit;
-     }
+session_start();
+if (isset($_SESSION['user'])) {
+    header("location:profil.php");
+    exit;
+}
 if (!empty($_POST)) {
     if (
         isset($_POST['email'], $_POST['password'])
@@ -44,10 +44,10 @@ if (!empty($_POST)) {
 
         //on doit stocker dans $session les informations de l'utilisateur
 
-        $_SESSION["user"]=[
-            "id"=>$user["id"],
-            "pseudo"=>$user["name"],
-            "email"=>$user["email"]
+        $_SESSION["user"] = [
+            "id" => $user["id"],
+            "pseudo" => $user["name"],
+            "email" => $user["email"]
         ];
 
         // var_dump($_SESSION);
