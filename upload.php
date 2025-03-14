@@ -48,6 +48,12 @@ if (
         die("l'extension du fichier n'est pas autorisee");
         die("formmat de fichier incorrect");
     }
+
+    //ici, le fichier est correct.
+    //lmitons la taille du fichier a 1m0
+    if($filesize>1024*1024){
+        die("le fichier est trop gros");
+    }
 }
 
 
