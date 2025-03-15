@@ -1,14 +1,14 @@
 <?php
 
-//les donnees  type files sont enrefistrer dans la superglobale file id $file['name]
-//toujours savoir que lorsque il ya deja un type file dans le projet, ajouter l'attrbut miltipaart/form-data
+//les donnees  type files sont enregistrer dans la superglobale $_FILES id $file['name']
+//toujours savoir que lorsque il ya deja un type file dans le projet, ajouter l'attribut enctype="multipart/form-data";
 // echo "<pre>";
 // var_dump($_FILES);
 // echo "</pre>";
 
 //que de mettre plusieurs champs pour les fichiers, nous pouvons mettre l'attriblt multiple 
 
-//nous avons aussi l'attribut accepts 
+//nous avons aussi l'attribut accepts ;
 ?>
 
 <?php
@@ -19,7 +19,7 @@ if (
     // echo "<pre>";
     // var_dump($_FILES);
     // echo "</pre>";
-    //l'image a ete bparfaitement ete recu
+    //l'image a ete parfaitement ete recu
     // var_dump($_FILES);
 
     //controles des verification 
@@ -36,7 +36,6 @@ if (
         'jpg' => 'image/jpeg',
         'pdf' => 'application/pdf',
 
-
     ]; 
     $filename = $_FILES['file']['name'];
     $filetype = $_FILES['file']['type'];
@@ -46,7 +45,7 @@ if (
 
     //verifie l'absence de l'extension dans les cles de $allowed 
     if (!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)) {
-        //soit l'extension soit le type est incorect ou les deux
+        //soit l'extension soit le type est incorrect ou les deux
         die("l'extension du fichier n'est pas autorisee");
         die("formmat de fichier incorrect");
     }
@@ -59,7 +58,7 @@ if (
 
     //on genere un nom unique 
     $newname=md5(uniqid());
-    //generer  le chemin d'accees complet a mon fichier
+    //generer  le chemin d'access complet a mon fichier
     $newfilename= __DIR__."/uploads/$newname.$extension";
 
    //on deplace le fichier de tmp a uploads en le renommant;
