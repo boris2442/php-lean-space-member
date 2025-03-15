@@ -62,14 +62,14 @@ if (
     //generer  le chemin d'accees complet a mon fichier
     $newfilename= __DIR__."/uploads/$newname.$extension";
 
-   //on deplace le fichier de tmp a uploads en le renommant
+   //on deplace le fichier de tmp a uploads en le renommant;
 
-    if(!move_uploaded_file($_FILES['file'],$newfilename)){
+    if(!move_uploaded_file($_FILES['file']['tmp_name'],$newfilename)){
         die("L'upload a echoué");
     }
 
-    //si je veux proteger contre les ecritures
-    //on interdit l'execution du fichier
+    //si je veux proteger contre les ecritures;
+    //on interdit l'execution du fichier;
     chmod($newfilename,0644);
 }
 
