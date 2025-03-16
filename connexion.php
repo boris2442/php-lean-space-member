@@ -51,7 +51,7 @@ if (!empty($_POST)) {
             "email" => $user["email"]
         ];
 
-        // var_dump($_SESSION);
+        
         //l'urilisateur est connecte et on le redirige vers la page de profil
 
         header("location:profil.php");
