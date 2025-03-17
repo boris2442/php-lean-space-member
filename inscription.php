@@ -13,8 +13,14 @@ if (!empty($_POST)) {
         )
     ) {
         $name = htmlspecialchars($_POST['name']);
+        $_SESSION["error"]=[];
+if(strlen($name) <3){
+    $_SESSION["error"][]="pseudo trop court";
+}
+
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            echo "adresse mail incorrect!";
+            // die ("adresse mail incorrect!");
+            $_SESSION["error"][]="adresse mail incorrect!";
         }
         $email = $_POST['email'];
 

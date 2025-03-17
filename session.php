@@ -3,7 +3,11 @@ session_start();
 var_dump($_SESSION);
 
 
-$_SESSION['panier']=[];
+$_SESSION['panier']=[
+    "produits"=>[
+        "brouette", "chaises", "dameuse"
+    ]
+];
 
 
 ?>
