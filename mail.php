@@ -15,6 +15,8 @@ $headers=[
     "Reply-To"=>"aubinsimo@gmail.com", //quand on repond au message, a qui sa part 
     "Cc"=>"copie@gmail.com", //on envoi la cope du message aa ...
 
+    "Content-Type" => "text/html; charset=utf-8",
+
 
 ];
     
