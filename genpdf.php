@@ -14,7 +14,7 @@ $users = $query->fetchAll();
 ob_start();
 require_once "pdf-content.php";
 $html=ob_get_contents();
-// die($html);
+die($html);
 
 
 ob_end_clean();
