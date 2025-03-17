@@ -31,7 +31,7 @@ if (
 
     $allowed = [
         'png' => 'image/png',
-        'jpe' => 'image/jpeg',
+     
         'jpeg' => 'image/jpeg',
         'jpg' => 'image/jpeg',
         'pdf' => 'application/pdf',
