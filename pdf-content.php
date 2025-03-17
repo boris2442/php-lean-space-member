@@ -19,12 +19,12 @@
             <?php
             foreach ($users as $user): ?>
                 <tr>
-                    <td><?php $user['id']?></td>
-                    <td><?php $user['name']?></td>
-                    <td><?php $user['email']?></td>
+                    <td><?php echo $user['id'] ?></td>
+                    <td><?php echo $user['name'] ?></td>
+                    <td><?php echo $user['email'] ?></td>
                 </tr>
-        </tbody>
-    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </tbody>
     </table>
 </body>
 
