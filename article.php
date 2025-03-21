@@ -2,22 +2,22 @@
 //connexion a la base
 require_once "./database.php";
 
-if(!isset($_GET["$id"]) ||!empty($_GET["id"])){
-header("location:articles.php");
-exit;
+if (!isset($_GET["$id"]) || !empty($_GET["id"])) {
+    header("location:articles.php");
+    exit;
 }
-$id=$_GET["id"];
+$id = $_GET["id"];
 
 
 
-$sql="SELECT*FROM `articles` WHERE `id`=:id ";
-$requete=$db->prepare($sql);
+$sql = "SELECT*FROM `articles` WHERE `id`=:id ";
+$requete = $db->prepare($sql);
 $requete->bindValue(":id", $id, PDO::PARAM_INT);
 $requete->execute();
-$article=$requette->fetch();
+$article = $requette->fetch();
 
 //o verifie si articles est vide
-if(!$article){
+if (!$article) {
     http_response_code(404);
     echo "L'article inexistant";
     exit;

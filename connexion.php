@@ -23,7 +23,7 @@ if (!empty($_POST)) {
 
         require_once "database.php";
 
-        $sql = "SELECT* FROM `spacemember` WHERE `email`=:email";
+        $sql = "SELECT* FROM  `spacemember` WHERE `email`=:email";
 
         $requete = $db->prepare($sql);
         $requete->bindValue(":email", $_POST['email'], PDO::PARAM_STR);
@@ -89,12 +89,5 @@ include_once "includes/navbar.php";
 <?php
 
 include_once "includes/footer.php";
-
-
-
-
-
-
-
 
 ?>
