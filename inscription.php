@@ -27,11 +27,8 @@ if (!empty($_POST)) {
             //hachage du mot de passe
             $pass = password_hash($_POST['password'], PASSWORD_ARGON2ID);
 
-
-
-
-            ///ajouter les controles supplementaires  
-            ///////////////par exemple, verifier si le mot de passe contient les caracteres souuhaités , transformer les donnees recuperer en majuscule soit en minuscule...
+     ///ajouter les controles supplementaires  
+            ///////////////par exemple, verifier si le mot de passe contient les caracteres souhaités , transformer les donnees recuperer en majuscule soit en minuscule...
             //emlever les espaces a l'aide de trim, ...
 
             require_once "database.php";
@@ -81,7 +78,7 @@ include_once "includes/navbar.php";
 <p>Contenu de la page</p>
 <h1>inscription</h1>
 <?php
-$message="pseufo tres court";
+$message = "pseufo tres court";
 if (isset($_SESSION["error"])) {
     foreach ($_SESSION["error"] as $err) {
 ?>
